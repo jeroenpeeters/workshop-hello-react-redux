@@ -2,7 +2,6 @@ import Counter from '../Counter'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state, props) => {
-  console.log('arg!',state, props);
   return {
     count:  state[props.name] || 0
   }
