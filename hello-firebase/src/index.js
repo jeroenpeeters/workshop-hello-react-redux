@@ -3,24 +3,21 @@ var React = require('react');
 
 import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
+import middleware from './redux/middleware'
 import App from './App'
 
 const reducer = (state = {}, action) => {
   console.log('reduce', action);
   switch(action.type){
-    case 'PLUS': {
-      return Object.assign({}, state, {[action.counter]: (state[action.counter] || 0) + 1})
-    }
-    case 'MIN': {
-      return Object.assign({}, state, {[action.counter]: (state[action.counter] || 0) - 1})
+    case 'COUNTERS_UPDATED': {
+      return Object.assign({}, state, action.counters)
     }
   }
   return state;
 }
 
-const store = createStore(reducer, {}, compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : noop => noop)
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, {}, composeEnhancers(middleware()));
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,

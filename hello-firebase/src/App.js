@@ -5,7 +5,7 @@ export default React.createClass({
   render: () => {
     return (
       <div>
-        <h1>Hello App</h1>
+        <h1>Hello React + Redux + Firebase</h1>
         <Counter name='Apples'/>
         <Counter name='Bananas'/>
       </div>
