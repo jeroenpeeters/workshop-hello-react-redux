@@ -1,17 +1,19 @@
 class: center, middle
 
-# Pizasessie React &amp; Redux
-Jeroen Peeters
+# Pizzasessie React &amp; Redux
+en een beetje Firebase
+
+-- Jeroen Peeters --
 
 ---
 
 # Topics
 
 1. NPM
-2. NodeJS
-3. React
-4. Redux
-5. Demo/Workshop: Chat system or Trello clone
+2. React
+3. Redux
+4. Firebase
+5. Mobile app
 
 ---
 
@@ -47,6 +49,12 @@ Jeroen Peeters
 - Replica of the Browser DOM
 - React redraws the entire screen on change
 - React calculates the minimum amount of changes required
+
+---
+
+## Virtual DOM
+
+![](https://i.stack.imgur.com/S1vngl.png)
 
 ---
 
@@ -136,8 +144,39 @@ render : function () {
     </div>
   );
 }
-
 ```
+---
+
+# Redux
+
+- Redux is a predictable state container for JavaScript apps
+- Store
+- Actions
+- Reducer
+
+---
+
+## Basic Principle
+
+- (previousState, action) -> newState
+
+---
+
+## Advanced Principles
+
+![](http://www.theodo.fr/uploads/blog//2016/03/ui_workflow.png)
+
+---
+
+# Firebase
+
+- Real time database
+- By Google
+- Serverless
+- Push changes
+
+
+---
 
 # Acknowledgements
 
@@ -145,3 +184,5 @@ This presentation makes extensive use of the resources listed below and should b
 considered a modest subset of all the information available in the linked resources.
 
 - https://github.com/objectpartners/react-redux-workshop
+- https://www.slideshare.net/nikgraf/react-redux-introduction
+- https://btholt.github.io/complete-intro-to-react/
