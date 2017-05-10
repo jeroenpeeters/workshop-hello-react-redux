@@ -13,10 +13,7 @@ const countersRef = firebase.database().ref('/counters')
 export default ({ getState, dispatch }) => {
 
     countersRef.on('value', (snapshot) => {
-      dispatch({
-        type: 'COUNTERS_UPDATED',
-        counters: snapshot.val()
-      })
+      console.log('counters', snapshot.val());
     });
 
     const getCounterState = (counter) => {
@@ -28,10 +25,6 @@ export default ({ getState, dispatch }) => {
           switch(action.type){
             case 'REQUEST_PLUS': {
               countersRef.update({[`/${action.counter}`]: getCounterState(action.counter) + 1})
-              break
-            }
-            case 'REQUEST_MIN': {
-              countersRef.update({[`/${action.counter}`]: getCounterState(action.counter) - 1})
               break
             }
             default: {

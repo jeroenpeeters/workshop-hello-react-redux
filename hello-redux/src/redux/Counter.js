@@ -13,12 +13,6 @@ const mapDispatchToProps = (dispatch, props) => {
         type: 'PLUS',
         counter: props.name
       })
-    },
-    onMinPressed: () => {
-      dispatch({
-        type: 'MIN',
-        counter: props.name
-      })
     }
   }
 }

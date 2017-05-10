@@ -26,8 +26,8 @@ export default class Counter extends React.Component {
     return (
       <div>
         I'm a counter for {this.props.name}. Count is {this.state.count} <br />
-        <button onClick={this.plus}>+</button>
-        <button onClick={this.minus}>-</button>
+        <button>+</button>
+        <button>-</button>
       </div>
     )
   }

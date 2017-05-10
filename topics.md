@@ -57,18 +57,19 @@ Jeroen Peeters
 
 ---
 
-## React.createClass
+## React.Component
 
-- Creates a component class, given a specification
+- Component superclass
 - A component implements a render method which returns a single child
 - That child may have an arbitrarily deep child structure
-- They are convenience wrappers that construct backing instances (via new) for you
 
 ```js
 var React = require('react');
-var Hello = React.createClass({
-  render: function () {...}
-});
+class Hello extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.friend}</h1>;
+  }
+}
 
 module.exports = Hello;
 ```

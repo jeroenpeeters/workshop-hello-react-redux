@@ -11,9 +11,6 @@ const reducer = (state = {}, action) => {
     case 'PLUS': {
       return Object.assign({}, state, {[action.counter]: (state[action.counter] || 0) + 1})
     }
-    case 'MIN': {
-      return Object.assign({}, state, {[action.counter]: (state[action.counter] || 0) - 1})
-    }
   }
   return state;
 }
