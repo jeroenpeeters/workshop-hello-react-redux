@@ -8,30 +8,26 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const countersRef = firebase.database().ref('/counters')
+const messagesRef = firebase.database().ref('/messages')
 
 export default ({ getState, dispatch }) => {
 
-    countersRef.on('value', (snapshot) => {
+    messagesRef.on('value', (snapshot) => {
       dispatch({
-        type: 'COUNTERS_UPDATED',
-        counters: snapshot.val()
+        type: 'MESSAGES_UPDATED',
+        messages: snapshot.val()
       })
     });
 
-    const getCounterState = (counter) => {
-      return getState()[counter] || 0
-    }
-
     return (next) => {
         return (action) => {
+          const myName = getState().name
           switch(action.type){
-            case 'REQUEST_PLUS': {
-              countersRef.update({[`/${action.counter}`]: getCounterState(action.counter) + 1})
-              break
-            }
-            case 'REQUEST_MIN': {
-              countersRef.update({[`/${action.counter}`]: getCounterState(action.counter) - 1})
+            case 'SEND_MESSAGE_REQUEST': {
+              messagesRef.push({
+                name: myName,
+                message: action.message
+              })
               break
             }
             default: {

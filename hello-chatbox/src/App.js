@@ -1,11 +1,12 @@
 var React = require('react');
 import Login from './redux/Login'
+import Chatbox from './redux/Chatbox'
 
 export default class App extends React.Component {
   render() {
     let content = <Login />
     if(this.props.loggedIn){
-      content = <div>chatbox</div>
+      content = <Chatbox />
     }
     return (
       <div>

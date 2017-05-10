@@ -1,5 +1,6 @@
-var ReactDOM = require('react-dom');
-var React = require('react');
+const ReactDOM = require('react-dom');
+const React = require('react');
+const _ = require('underscore')
 
 import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -14,6 +15,15 @@ const reducer = (state = {}, action) => {
     }
     case 'NAME_CHANGED': {
       return Object.assign({}, state, {name: action.name})
+    }
+    case 'MESSAGES_UPDATED': {
+      return Object.assign({}, state, {messages: _.values(_.mapObject(action.messages, (val, key) => {
+        return {
+          id: key,
+          name: val.name,
+          message: val.message
+        }
+      }))})
     }
   }
   return state;
