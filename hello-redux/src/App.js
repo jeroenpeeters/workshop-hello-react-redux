@@ -1,6 +1,5 @@
 var React = require('react');
-
-import Counter from './Counter'
+import Counter from './redux/Counter'
 
 export default React.createClass({
   render: () => {
@@ -8,6 +7,7 @@ export default React.createClass({
       <div>
         <h1>Hello App</h1>
         <Counter name='Apples'/>
+        <Counter name='Bananas'/>
       </div>
     )
   }
